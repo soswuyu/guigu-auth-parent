@@ -79,12 +79,12 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request,response);
             return;
         }
-        /*if ("/admin/system/index/logout".equals(requestURI)){
+        if ("/admin/system/index/logout".equals(requestURI)){
             String token = request.getHeader("token");
             redisTemplate.delete(token);
             filterChain.doFilter(request,response);
             return;
-        }*/
+        }
         //从请求头中获取token，根据token查询redis
         //CustomUser转换为Security里的UsernamePasswordAuthenticationToken
         UsernamePasswordAuthenticationToken authenticationToken = getAuthentication(request);
